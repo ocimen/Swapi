@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi", "Swapi.csproj", "{250D5406-AD9D-4981-A4A1-14D9C0F89A54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Service", "..\Swapi.Service\Swapi.Service.csproj", "{00AA3AE8-E7A2-4263-8ECE-1A01D999D242}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{250D5406-AD9D-4981-A4A1-14D9C0F89A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250D5406-AD9D-4981-A4A1-14D9C0F89A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250D5406-AD9D-4981-A4A1-14D9C0F89A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250D5406-AD9D-4981-A4A1-14D9C0F89A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00AA3AE8-E7A2-4263-8ECE-1A01D999D242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00AA3AE8-E7A2-4263-8ECE-1A01D999D242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00AA3AE8-E7A2-4263-8ECE-1A01D999D242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00AA3AE8-E7A2-4263-8ECE-1A01D999D242}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2D46BDE-F5D6-4481-8803-4D9037A7E052}
+	EndGlobalSection
+EndGlobal
