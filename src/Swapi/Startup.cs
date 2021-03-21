@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -57,6 +58,10 @@ namespace Swapi
                 x.RegisterValidatorsFromAssembly(typeof(Startup).Assembly);
             });
             services.AddHttpClient();
+            services.AddHttpClient(swapApi.ClientName, c =>
+            {
+                c.BaseAddress = new Uri(swapApi.BaseUrl);
+            });
             services.AddSwaggerDocumentation();
 
             services.AddTransient<IAuthService, AuthService>();

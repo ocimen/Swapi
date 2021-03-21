@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
@@ -16,65 +13,76 @@ namespace Swapi.Service
 {
     public class PeopleService : IPeopleService
     {
-        private readonly ILogger _Logger;
-        private readonly IHttpClientFactory httpClientFactory;
+        private readonly ILogger _logger;
+        private readonly IHttpClientFactory _httpClientFactory;
         private readonly IOptions<SwapApi> _options;
         private readonly IMapper _mapper;
 
         public PeopleService(ILogger<PeopleService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options, IMapper mapper)
         {
-            _Logger = logger;
-            this.httpClientFactory = httpClientFactory;
+            _logger = logger;
+            _httpClientFactory = httpClientFactory;
             _options = options;
             _mapper = mapper;
         }
 
         public async Task<People> GetById(int id)
         {
-            var httpClient = httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri(_options.Value.BaseUrl);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.ClientName);
             var url = $"people/{id}/";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                _Logger.LogInformation($"People Get By Id {id} was successfull");
-                var content = await response.Content.ReadAsStringAsync();
-                var person = JsonConvert.DeserializeObject<People>(content);
-                person = _mapper.Map<People>(person);
-                return person;
+                _logger.LogInformation($"People Get By Id {id} was successfull");
+                var people = await GetPeople(response.Content);
+                return people;
             }
             
-            _Logger.LogWarning($"Request to {url} has failed");
+            _logger.LogWarning($"Request to {url} has failed");
             return null;
         }
 
         public async Task<SearchResult<People>> Search(string name, int page)
         {
-            var httpClient = httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri(_options.Value.BaseUrl);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.ClientName);
             var url = $"people/?search={name}&page={page}";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                var person = JsonConvert.DeserializeObject<SearchResult<People>>(content);
-                person = _mapper.Map<SearchResult<People>>(person);
-                person.results = _mapper.Map<List<People>>(person.results);
+                _logger.LogInformation($"People Search Get By {name} was successfull");
+                var person = await GetPeopleSearchResult(response.Content);
                 return person;
             }
 
-            _Logger.LogWarning($"Request to {url} has failed");
+            _logger.LogWarning($"Request to {url} has failed");
             return null;
         }
 
-        private void ModifyUrls(People people)
+        private async Task<People> GetPeople(HttpContent content)
         {
-            //TODO: get base url from config or dynamic
-            people.homeworld = people.homeworld.Replace("swapi.dev", "localhost:5000");
-            people.Url = people.Url.Replace("swapi.dev", "localhost:5000");
-            people.films = people.films.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();
-            people.vehicles = people.vehicles.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();
-            people.species = people.species.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();
+            var str = await content.ReadAsStringAsync();
+            var people = JsonConvert.DeserializeObject<People>(str);
+            if (people != null)
+            {
+                people = _mapper.Map<People>(people);
+                return people;
+            }
+
+            return null;
+        }
+
+        private async Task<SearchResult<People>> GetPeopleSearchResult(HttpContent content)
+        {
+            var searchResult = await content.ReadAsStringAsync();
+            var people = JsonConvert.DeserializeObject<SearchResult<People>>(searchResult);
+            if (people != null)
+            {
+                people = _mapper.Map<SearchResult<People>>(people);
+                people.results = _mapper.Map<List<People>>(people.results);
+                return people;
+            }
+
+            return null;
         }
     }
 }

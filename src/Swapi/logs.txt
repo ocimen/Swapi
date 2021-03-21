@@ -1063,3 +1063,76 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2021-03-21 17:23:22.739 +01:00 [INF] Executed action Swapi.Controllers.PlanetsController.Search (Swapi) in 60.1721ms
 2021-03-21 17:23:22.740 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PlanetsController.Search (Swapi)'
 2021-03-21 17:23:22.740 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/planets/?search=c&page=1 - - - 200 - application/json;+charset=utf-8 63.6141ms
+2021-03-21 20:36:42.666 +01:00 [INF] User profile is available. Using '/Users/ozgecimendere/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-21 20:36:43.149 +01:00 [INF] Now listening on: http://localhost:5000
+2021-03-21 20:36:43.150 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-21 20:36:43.150 +01:00 [INF] Hosting environment: Development
+2021-03-21 20:36:43.150 +01:00 [INF] Content root path: /Users/ozgecimendere/Project/Swapi/src/Swapi
+2021-03-21 20:36:43.649 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - -
+2021-03-21 20:36:43.649 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - -
+2021-03-21 20:36:43.751 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - - - 0 - - 107.1638ms
+2021-03-21 20:36:43.855 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - - - 200 - text/html;charset=utf-8 211.8866ms
+2021-03-21 20:36:44.200 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-03-21 20:36:44.336 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 135.7916ms
+2021-03-21 20:37:16.172 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/People?name=a&page=1 - -
+2021-03-21 20:37:16.295 +01:00 [INF] Executing endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 20:37:16.337 +01:00 [INF] Route matched with {action = "Search", controller = "People"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Search(System.String, Int32) on controller Swapi.Controllers.PeopleController (Swapi).
+2021-03-21 20:37:16.434 +01:00 [INF] Start processing HTTP request GET "http://swapi.dev/api/people/?search=a&page=1"
+2021-03-21 20:37:16.437 +01:00 [INF] Sending HTTP request GET "http://swapi.dev/api/people/?search=a&page=1"
+2021-03-21 20:37:16.931 +01:00 [INF] Received HTTP response headers after 489.6169ms - 200
+2021-03-21 20:37:16.932 +01:00 [INF] End processing HTTP request after 501.0887ms - 200
+2021-03-21 20:37:29.860 +01:00 [INF] Executing OkObjectResult, writing value of type 'Swapi.Service.Models.SearchResult`1[[Swapi.Service.Models.People, Swapi.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-21 20:37:29.886 +01:00 [INF] Executed action Swapi.Controllers.PeopleController.Search (Swapi) in 13541.8297ms
+2021-03-21 20:37:29.887 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 20:37:29.891 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/People?name=a&page=1 - - - 200 - application/json;+charset=utf-8 13719.4803ms
+2021-03-21 21:29:31.959 +01:00 [INF] User profile is available. Using '/Users/ozgecimendere/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-21 21:29:32.454 +01:00 [INF] Now listening on: http://localhost:5000
+2021-03-21 21:29:32.455 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-21 21:29:32.455 +01:00 [INF] Hosting environment: Development
+2021-03-21 21:29:32.455 +01:00 [INF] Content root path: /Users/ozgecimendere/Project/Swapi/src/Swapi
+2021-03-21 21:29:33.081 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - -
+2021-03-21 21:29:33.287 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - - - 200 - text/html;charset=utf-8 207.6652ms
+2021-03-21 21:29:33.388 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - -
+2021-03-21 21:29:33.442 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-03-21 21:29:33.442 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - - - 0 142933 text/css 54.5680ms
+2021-03-21 21:29:33.535 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - -
+2021-03-21 21:29:33.537 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-03-21 21:29:33.538 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - - - 0 628 image/png 2.4817ms
+2021-03-21 21:29:33.645 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-03-21 21:29:33.789 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 144.2350ms
+2021-03-21 21:29:41.754 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/People/2 - -
+2021-03-21 21:29:41.864 +01:00 [INF] Executing endpoint 'Swapi.Controllers.PeopleController.Get (Swapi)'
+2021-03-21 21:29:41.902 +01:00 [INF] Route matched with {action = "Get", controller = "People"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller Swapi.Controllers.PeopleController (Swapi).
+2021-03-21 21:29:41.979 +01:00 [INF] Start processing HTTP request GET "http://swapi.dev/api/people/2/"
+2021-03-21 21:29:41.984 +01:00 [INF] Sending HTTP request GET "http://swapi.dev/api/people/2/"
+2021-03-21 21:29:42.375 +01:00 [INF] Received HTTP response headers after 387.4651ms - 200
+2021-03-21 21:29:42.377 +01:00 [INF] End processing HTTP request after 399.2711ms - 200
+2021-03-21 21:29:42.383 +01:00 [INF] People Get By Id 2 was successfull
+2021-03-21 21:29:42.622 +01:00 [INF] Executing OkObjectResult, writing value of type 'Swapi.Service.Models.People'.
+2021-03-21 21:29:42.637 +01:00 [INF] Executed action Swapi.Controllers.PeopleController.Get (Swapi) in 730.0332ms
+2021-03-21 21:29:42.638 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PeopleController.Get (Swapi)'
+2021-03-21 21:29:42.641 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/People/2 - - - 200 - application/json;+charset=utf-8 887.3815ms
+2021-03-21 21:30:00.860 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/People?name=a&page=1 - -
+2021-03-21 21:30:00.862 +01:00 [INF] Executing endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 21:30:00.866 +01:00 [INF] Route matched with {action = "Search", controller = "People"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Search(System.String, Int32) on controller Swapi.Controllers.PeopleController (Swapi).
+2021-03-21 21:30:00.875 +01:00 [INF] Start processing HTTP request GET "http://swapi.dev/api/people/?search=a&page=1"
+2021-03-21 21:30:00.876 +01:00 [INF] Sending HTTP request GET "http://swapi.dev/api/people/?search=a&page=1"
+2021-03-21 21:30:00.970 +01:00 [INF] Received HTTP response headers after 94.6932ms - 200
+2021-03-21 21:30:00.971 +01:00 [INF] End processing HTTP request after 95.5818ms - 200
+2021-03-21 21:30:00.971 +01:00 [INF] People Search Get By a was successfull
+2021-03-21 21:30:01.000 +01:00 [INF] Executing OkObjectResult, writing value of type 'Swapi.Service.Models.SearchResult`1[[Swapi.Service.Models.People, Swapi.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-21 21:30:01.004 +01:00 [INF] Executed action Swapi.Controllers.PeopleController.Search (Swapi) in 138.0411ms
+2021-03-21 21:30:01.004 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 21:30:01.005 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/People?name=a&page=1 - - - 200 - application/json;+charset=utf-8 144.8870ms
+2021-03-21 21:30:08.671 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/People?name=c&page=1 - -
+2021-03-21 21:30:08.673 +01:00 [INF] Executing endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 21:30:08.673 +01:00 [INF] Route matched with {action = "Search", controller = "People"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Search(System.String, Int32) on controller Swapi.Controllers.PeopleController (Swapi).
+2021-03-21 21:30:08.674 +01:00 [INF] Start processing HTTP request GET "http://swapi.dev/api/people/?search=c&page=1"
+2021-03-21 21:30:08.674 +01:00 [INF] Sending HTTP request GET "http://swapi.dev/api/people/?search=c&page=1"
+2021-03-21 21:30:08.755 +01:00 [INF] Received HTTP response headers after 81.3531ms - 200
+2021-03-21 21:30:08.756 +01:00 [INF] End processing HTTP request after 81.9358ms - 200
+2021-03-21 21:30:08.756 +01:00 [INF] People Search Get By c was successfull
+2021-03-21 21:30:08.758 +01:00 [INF] Executing OkObjectResult, writing value of type 'Swapi.Service.Models.SearchResult`1[[Swapi.Service.Models.People, Swapi.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-21 21:30:08.758 +01:00 [INF] Executed action Swapi.Controllers.PeopleController.Search (Swapi) in 85.0776ms
+2021-03-21 21:30:08.759 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PeopleController.Search (Swapi)'
+2021-03-21 21:30:08.759 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/People?name=c&page=1 - - - 200 - application/json;+charset=utf-8 87.7984ms
