@@ -1,0 +1,44 @@
+2021-03-21 13:01:12.040 +01:00 [INF] User profile is available. Using '/Users/ozgecimendere/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-21 13:01:12.334 +01:00 [INF] Now listening on: http://localhost:5000
+2021-03-21 13:01:12.334 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-21 13:01:12.334 +01:00 [INF] Hosting environment: Development
+2021-03-21 13:01:12.334 +01:00 [INF] Content root path: /Users/ozgecimendere/Project/Swapi/src/Swapi
+2021-03-21 13:01:44.711 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2021-03-21 13:01:44.810 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 404 0 - 100.6105ms
+2021-03-21 13:01:44.935 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - -
+2021-03-21 13:01:44.944 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - - - 404 0 - 9.4142ms
+2021-03-21 13:01:50.530 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - -
+2021-03-21 13:01:50.603 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - - - 200 - text/html;charset=utf-8 73.5476ms
+2021-03-21 13:01:50.789 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-16x16.png - -
+2021-03-21 13:01:50.801 +01:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2021-03-21 13:01:50.802 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-16x16.png - - - 0 665 image/png 13.2119ms
+2021-03-21 13:01:50.878 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-03-21 13:01:50.980 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 102.0929ms
+2021-03-21 13:02:04.773 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Auth application/json 36
+2021-03-21 13:02:04.778 +01:00 [INF] Executing endpoint 'Swapi.Controllers.AuthController.Login (Swapi)'
+2021-03-21 13:02:04.809 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(Swapi.Models.LoginModel) on controller Swapi.Controllers.AuthController (Swapi).
+2021-03-21 13:02:04.874 +01:00 [INF] user has logged in successfully
+2021-03-21 13:02:04.995 +01:00 [INF] Token created for user.
+2021-03-21 13:02:04.997 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-03-21 13:02:05.012 +01:00 [INF] Executed action Swapi.Controllers.AuthController.Login (Swapi) in 198.1659ms
+2021-03-21 13:02:05.014 +01:00 [INF] Executed endpoint 'Swapi.Controllers.AuthController.Login (Swapi)'
+2021-03-21 13:02:05.014 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/Auth application/json 36 - 200 - application/json;+charset=utf-8 241.0651ms
+2021-03-21 13:02:18.838 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Planet/3 - -
+2021-03-21 13:02:18.843 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2021-03-21 13:02:18.846 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2021-03-21 13:02:18.847 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Planet/3 - - - 401 0 - 8.4640ms
+2021-03-21 13:02:29.271 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Planet/3 - -
+2021-03-21 13:02:29.338 +01:00 [INF] Successfully validated the token.
+2021-03-21 13:02:29.340 +01:00 [INF] Authorization was successful.
+2021-03-21 13:02:29.340 +01:00 [INF] Executing endpoint 'Swapi.Controllers.PlanetController.Get (Swapi)'
+2021-03-21 13:02:29.352 +01:00 [INF] Route matched with {action = "Get", controller = "Planet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller Swapi.Controllers.PlanetController (Swapi).
+2021-03-21 13:02:29.373 +01:00 [INF] Start processing HTTP request GET "https://swapi.dev/api/planets/3/"
+2021-03-21 13:02:29.375 +01:00 [INF] Sending HTTP request GET "https://swapi.dev/api/planets/3/"
+2021-03-21 13:02:29.664 +01:00 [INF] Received HTTP response headers after 285.5697ms - 200
+2021-03-21 13:02:29.665 +01:00 [INF] End processing HTTP request after 292.3193ms - 200
+2021-03-21 13:02:29.777 +01:00 [INF] Executing OkObjectResult, writing value of type 'Swapi.Service.Models.Planet'.
+2021-03-21 13:02:29.781 +01:00 [INF] Executed action Swapi.Controllers.PlanetController.Get (Swapi) in 428.8528ms
+2021-03-21 13:02:29.782 +01:00 [INF] Executed endpoint 'Swapi.Controllers.PlanetController.Get (Swapi)'
+2021-03-21 13:02:29.786 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Planet/3 - - - 200 - application/json;+charset=utf-8 514.1856ms
+2021-03-21 13:02:39.362 +01:00 [INF] Application is shutting down...
