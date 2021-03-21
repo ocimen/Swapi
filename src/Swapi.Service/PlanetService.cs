@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -16,12 +17,14 @@ namespace Swapi.Service
         private readonly ILogger _Logger;
         private readonly IHttpClientFactory httpClientFactory;
         private readonly IOptions<SwapApi> _options;
+        private readonly IMapper _mapper;
 
-        public PlanetService(ILogger<PlanetService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options)
+        public PlanetService(ILogger<PlanetService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options, IMapper mapper)
         {
             _Logger = logger;
             this.httpClientFactory = httpClientFactory;
             _options = options;
+            _mapper = mapper;
         }
 
         public async Task<Planet> GetById(int id)
@@ -35,6 +38,7 @@ namespace Swapi.Service
                 _Logger.LogInformation($"Planet Get By Id {id} was successfull");
                 var content = await response.Content.ReadAsStringAsync();
                 var planet = JsonConvert.DeserializeObject<Planet>(content);
+                planet = _mapper.Map<Planet>(planet);
                 return planet;
             }
             
@@ -52,6 +56,8 @@ namespace Swapi.Service
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var planetList = JsonConvert.DeserializeObject<SearchResult<Planet>>(content);
+                planetList = _mapper.Map<SearchResult<Planet>>(planetList);
+                planetList.results = _mapper.Map<List<Planet>>(planetList.results);
                 return planetList;
             }
             

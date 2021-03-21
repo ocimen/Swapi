@@ -3,16 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Text;
+using AutoMapper;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Swapi.Extensions;
 using Swapi.Service;
 using Swapi.Service.Interfaces;
+using Swapi.Service.Mappings;
 using Swapi.Service.Models;
 
 namespace Swapi
@@ -40,11 +38,20 @@ namespace Swapi
             services.Configure<SwapApi>(Configuration.GetSection("SwapApi"));
             services.Configure<Audience>(Configuration.GetSection("Audience"));
             
-            //Authentication
             var serviceProvider = services.BuildServiceProvider();
             var audience = serviceProvider.GetRequiredService<IOptions<Audience>>().Value;
+            var swapApi = serviceProvider.GetRequiredService<IOptions<SwapApi>>().Value;
+            
+            //Authentication
             services.AddJwtAuthentication(audience);
 
+            //AutoMapper
+            var mappingConfig = new MapperConfiguration(mc => {
+                mc.AddProfile(new MappingProfile(swapApi));
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            
             services.AddControllers().AddFluentValidation(x =>
             {
                 x.RegisterValidatorsFromAssembly(typeof(Startup).Assembly);

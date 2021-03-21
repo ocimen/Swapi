@@ -28,7 +28,8 @@ namespace Swapi.Controllers
         /// <returns>Returns the specific people</returns>
         /// <response code="200">Returned if there is any people with that id</response>
         /// <response code="404">Returned if there is no people with that id</response>
-        [Authorize]
+        //TODO: open authorize
+        //[Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]

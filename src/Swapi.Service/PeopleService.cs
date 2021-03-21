@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -18,12 +19,14 @@ namespace Swapi.Service
         private readonly ILogger _Logger;
         private readonly IHttpClientFactory httpClientFactory;
         private readonly IOptions<SwapApi> _options;
+        private readonly IMapper _mapper;
 
-        public PeopleService(ILogger<PeopleService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options)
+        public PeopleService(ILogger<PeopleService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options, IMapper mapper)
         {
             _Logger = logger;
             this.httpClientFactory = httpClientFactory;
             _options = options;
+            _mapper = mapper;
         }
 
         public async Task<People> GetById(int id)
@@ -37,7 +40,7 @@ namespace Swapi.Service
                 _Logger.LogInformation($"People Get By Id {id} was successfull");
                 var content = await response.Content.ReadAsStringAsync();
                 var person = JsonConvert.DeserializeObject<People>(content);
-                ModifyUrls(person);
+                person = _mapper.Map<People>(person);
                 return person;
             }
             
@@ -55,6 +58,8 @@ namespace Swapi.Service
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var person = JsonConvert.DeserializeObject<SearchResult<People>>(content);
+                person = _mapper.Map<SearchResult<People>>(person);
+                person.results = _mapper.Map<List<People>>(person.results);
                 return person;
             }
 

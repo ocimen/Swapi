@@ -24,7 +24,8 @@ namespace Swapi.Controllers
         /// <returns>Returns the specific planet</returns>
         /// <response code="200">Returned if the there is a planet with that id</response>
         /// <response code="400">Returned if there is no planet with that id</response>
-        [Authorize]
+        //TODO: open authorize
+        //[Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
