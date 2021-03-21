@@ -24,7 +24,7 @@ namespace Swapi.Service
 
         public object Login(string username, string password)
         {
-            if (username == "user" && password == "pwd")
+            if (username == "string" && password == "string")
             {
                 _logger.LogInformation($"{username} has logged in successfully");
                 var now = DateTime.UtcNow;

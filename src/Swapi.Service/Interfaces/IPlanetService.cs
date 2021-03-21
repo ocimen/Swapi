@@ -11,6 +11,6 @@ namespace Swapi.Service.Interfaces
     {
         Task<Planet> GetById(int id);
 
-        Task<SearchResult<Planet>> GetByName(string name);
+        Task<SearchResult<Planet>> Search(string name, int page);
     }
 }

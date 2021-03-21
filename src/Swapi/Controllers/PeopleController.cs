@@ -14,11 +14,11 @@ namespace Swapi.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        private readonly IPeopleService peopleService;
+        private readonly IPeopleService _peopleService;
 
         public PeopleController(IPeopleService peopleService)
         {
-            this.peopleService = peopleService;
+            this._peopleService = peopleService;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Swapi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(int id)
         {
-            var people = await peopleService.GetById(id);
+            var people = await _peopleService.GetById(id);
             if (people != null)
             {
                 return Ok(people);
@@ -45,20 +45,22 @@ namespace Swapi.Controllers
         }
 
         /// <summary>
-        /// Action to get specific people by name
+        /// Action to search specific people by name
         /// </summary>
-        /// <param name="name">Param to get specific people by name</param>
-        /// <returns>Returns the specific people</returns>
-        /// <response code="200">Returned if there is any people with that id</response>
-        /// <response code="404">Returned if there is no people with that id</response>
-        [Authorize]
-        [HttpGet("{name}")]
+        /// <param name="name">Param to search people by name</param>
+        /// <param name="page">Param to get specific page of the results.</param>
+        /// <returns>Returns the people list which matched with search term</returns>
+        /// <response code="200">Returned if there is any matched people with that name</response>
+        /// <response code="404">Returned if there is no people with that name</response>
+        //TODO: open authorize
+        //[Authorize]
+        [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Get(string name)
+        public async Task<IActionResult> Search(string name, int page = 1)
         {
-            var people = await peopleService.GetByName(name);
+            var people = await _peopleService.Search(name, page);
             if (people != null)
             {
                 return Ok(people);

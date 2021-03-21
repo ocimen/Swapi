@@ -45,11 +45,11 @@ namespace Swapi.Service
             return null;
         }
 
-        public async Task<SearchResult<People>> GetByName(string name)
+        public async Task<SearchResult<People>> Search(string name, int page)
         {
             var httpClient = httpClientFactory.CreateClient();
             httpClient.BaseAddress = new Uri(_options.Value.BaseUrl);
-            var url = $"people/?search={name}";
+            var url = $"people/?search={name}&page={page}";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
@@ -66,7 +66,7 @@ namespace Swapi.Service
         {
             //TODO: get base url from config or dynamic
             people.homeworld = people.homeworld.Replace("swapi.dev", "localhost:5000");
-            people.url = people.url.Replace("swapi.dev", "localhost:5000");
+            people.Url = people.Url.Replace("swapi.dev", "localhost:5000");
             people.films = people.films.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();
             people.vehicles = people.vehicles.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();
             people.species = people.species.Select(s => s.Replace("swapi.dev", "localhost:5000")).ToList();

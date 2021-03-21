@@ -10,6 +10,6 @@ namespace Swapi.Service.Interfaces
     {
         Task<People> GetById(int id);
 
-        Task<SearchResult<People>> GetByName(string name);
+        Task<SearchResult<People>> Search(string name, int page);
     }
 }
