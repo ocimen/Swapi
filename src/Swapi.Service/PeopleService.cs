@@ -28,12 +28,12 @@ namespace Swapi.Service
 
         public async Task<People> GetById(int id)
         {
-            var httpClient = _httpClientFactory.CreateClient(_options.Value.ClientName);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.SwapiClient);
             var url = $"people/{id}/";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                _logger.LogInformation($"People Get By Id {id} was successfull");
+                _logger.LogInformation($"People Get By Id {id} was successful");
                 var people = await GetPeople(response.Content);
                 return people;
             }
@@ -44,28 +44,28 @@ namespace Swapi.Service
 
         public async Task<SearchResult<People>> Search(string name, int page)
         {
-            var httpClient = _httpClientFactory.CreateClient(_options.Value.ClientName);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.SwapiClient);
             var url = $"people/?search={name}&page={page}";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                _logger.LogInformation($"People Search Get By {name} was successfull");
+                _logger.LogInformation($"People Search Get By {name} was successful");
                 var person = await GetPeopleSearchResult(response.Content);
                 return person;
             }
 
             _logger.LogWarning($"Request to {url} has failed");
-            return null;
+            return new SearchResult<People>();
         }
 
         private async Task<People> GetPeople(HttpContent content)
         {
-            var str = await content.ReadAsStringAsync();
-            var people = JsonConvert.DeserializeObject<People>(str);
-            if (people != null)
+            var peopleContent = await content.ReadAsStringAsync();
+            var deserializedPeople = JsonConvert.DeserializeObject<People>(peopleContent);
+            if (deserializedPeople != null)
             {
-                people = _mapper.Map<People>(people);
-                return people;
+                var mappedPeople = _mapper.Map<People>(deserializedPeople);
+                return mappedPeople;
             }
 
             return null;
@@ -74,12 +74,12 @@ namespace Swapi.Service
         private async Task<SearchResult<People>> GetPeopleSearchResult(HttpContent content)
         {
             var searchResult = await content.ReadAsStringAsync();
-            var people = JsonConvert.DeserializeObject<SearchResult<People>>(searchResult);
-            if (people != null)
+            var deserializedSearchResult = JsonConvert.DeserializeObject<SearchResult<People>>(searchResult);
+            if (deserializedSearchResult != null)
             {
-                people = _mapper.Map<SearchResult<People>>(people);
-                people.results = _mapper.Map<List<People>>(people.results);
-                return people;
+                var mappedSearchResult = _mapper.Map<SearchResult<People>>(deserializedSearchResult);
+                mappedSearchResult.results = _mapper.Map<List<People>>(mappedSearchResult.results);
+                return mappedSearchResult;
             }
 
             return null;

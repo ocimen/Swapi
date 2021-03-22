@@ -58,7 +58,7 @@ namespace Swapi
                 x.RegisterValidatorsFromAssembly(typeof(Startup).Assembly);
             });
             services.AddHttpClient();
-            services.AddHttpClient(swapApi.ClientName, c =>
+            services.AddHttpClient(swapApi.SwapiClient, c =>
             {
                 c.BaseAddress = new Uri(swapApi.BaseUrl);
             });

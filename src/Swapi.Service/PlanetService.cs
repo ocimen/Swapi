@@ -14,54 +14,75 @@ namespace Swapi.Service
 {
     public class PlanetService : IPlanetService
     {
-        private readonly ILogger _Logger;
-        private readonly IHttpClientFactory httpClientFactory;
+        private readonly ILogger _logger;
+        private readonly IHttpClientFactory _httpClientFactory;
         private readonly IOptions<SwapApi> _options;
         private readonly IMapper _mapper;
 
         public PlanetService(ILogger<PlanetService> logger, IHttpClientFactory httpClientFactory, IOptions<SwapApi> options, IMapper mapper)
         {
-            _Logger = logger;
-            this.httpClientFactory = httpClientFactory;
+            _logger = logger;
+            _httpClientFactory = httpClientFactory;
             _options = options;
             _mapper = mapper;
         }
 
         public async Task<Planet> GetById(int id)
         {
-            var httpClient = httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri(_options.Value.BaseUrl);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.SwapiClient);
             var url = $"planets/{id}/";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                _Logger.LogInformation($"Planet Get By Id {id} was successfull");
-                var content = await response.Content.ReadAsStringAsync();
-                var planet = JsonConvert.DeserializeObject<Planet>(content);
-                planet = _mapper.Map<Planet>(planet);
+                _logger.LogInformation($"Planet Get By Id {id} was successful");
+                var planet = await GetPlanet(response.Content);
                 return planet;
             }
             
-            _Logger.LogWarning($"Request to {url} has failed");
+            _logger.LogWarning($"Request to {url} has failed");
             return null;
         }
 
-        public async Task<SearchResult<Planet>> Search(string name, int page = 1)
+        public async Task<SearchResult<Planet>> Search(string name, int page)
         {
-            var httpClient = httpClientFactory.CreateClient();
-            httpClient.BaseAddress = new Uri(_options.Value.BaseUrl);
+            var httpClient = _httpClientFactory.CreateClient(_options.Value.SwapiClient);
             var url = $"planets/?search={name}&page={page}";
             var response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                var planetList = JsonConvert.DeserializeObject<SearchResult<Planet>>(content);
-                planetList = _mapper.Map<SearchResult<Planet>>(planetList);
-                planetList.results = _mapper.Map<List<Planet>>(planetList.results);
+                _logger.LogInformation($"Planet Search Get By {name} was successful");
+                var planetList = await GetPlanetSearchResult(response.Content);
                 return planetList;
             }
             
-            _Logger.LogWarning($"Request to {url} has failed");
+            _logger.LogWarning($"Request to {url} has failed");
+            return new SearchResult<Planet>();
+        }
+
+        private async Task<Planet> GetPlanet(HttpContent content)
+        {
+            var planetContent = await content.ReadAsStringAsync();
+            var deserializedPlanet = JsonConvert.DeserializeObject<Planet>(planetContent);
+            if (deserializedPlanet != null)
+            {
+                var mappedPlanet = _mapper.Map<Planet>(deserializedPlanet);
+                return mappedPlanet;
+            }
+
+            return null;
+        }
+
+        private async Task<SearchResult<Planet>> GetPlanetSearchResult(HttpContent content)
+        {
+            var searchResultContent = await content.ReadAsStringAsync();
+            var deserializedPlanetList = JsonConvert.DeserializeObject<SearchResult<Planet>>(searchResultContent);
+            if (deserializedPlanetList != null)
+            {
+                var mappedPlanetList = _mapper.Map<SearchResult<Planet>>(deserializedPlanetList);
+                mappedPlanetList.results = _mapper.Map<List<Planet>>(mappedPlanetList.results);
+                return mappedPlanetList;
+            }
+
             return null;
         }
     }
