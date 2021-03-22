@@ -1328,3 +1328,48 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2021-03-22 14:17:08.048 +01:00 [INF] Received HTTP response headers after 45.2867ms - 200
 2021-03-22 14:17:08.048 +01:00 [INF] End processing HTTP request after 45.6104ms - 200
 2021-03-22 14:17:08.048 +01:00 [INF] People Search Get By lu was successful
+2021-03-22 15:04:25.650 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2021-03-22 15:04:25.686 +00:00 [INF] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-22 15:04:25.749 +00:00 [INF] Creating key {2cbd3c6c-c203-47ad-951c-3f2b14c84ca5} with creation date 2021-03-22 15:04:25Z, activation date 2021-03-22 15:04:25Z, and expiration date 2021-06-20 15:04:25Z.
+2021-03-22 15:04:25.767 +00:00 [WRN] No XML encryptor configured. Key {2cbd3c6c-c203-47ad-951c-3f2b14c84ca5} may be persisted to storage in unencrypted form.
+2021-03-22 15:04:25.776 +00:00 [INF] Writing data to file '/root/.aspnet/DataProtection-Keys/key-2cbd3c6c-c203-47ad-951c-3f2b14c84ca5.xml'.
+2021-03-22 15:04:26.140 +00:00 [INF] Now listening on: http://[::]:80
+2021-03-22 15:04:26.141 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-22 15:04:26.143 +00:00 [INF] Hosting environment: Development
+2021-03-22 15:04:26.146 +00:00 [INF] Content root path: /app
+2021-03-22 15:16:54.761 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2021-03-22 15:16:54.791 +00:00 [INF] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-22 15:16:54.831 +00:00 [INF] Creating key {ce3c944a-2999-4705-b250-9ea95287efe8} with creation date 2021-03-22 15:16:54Z, activation date 2021-03-22 15:16:54Z, and expiration date 2021-06-20 15:16:54Z.
+2021-03-22 15:16:54.843 +00:00 [WRN] No XML encryptor configured. Key {ce3c944a-2999-4705-b250-9ea95287efe8} may be persisted to storage in unencrypted form.
+2021-03-22 15:16:54.849 +00:00 [INF] Writing data to file '/root/.aspnet/DataProtection-Keys/key-ce3c944a-2999-4705-b250-9ea95287efe8.xml'.
+2021-03-22 15:16:55.305 +00:00 [INF] Now listening on: http://[::]:80
+2021-03-22 15:16:55.307 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-22 15:16:55.308 +00:00 [INF] Hosting environment: Development
+2021-03-22 15:16:55.309 +00:00 [INF] Content root path: /app
+2021-03-22 15:19:21.266 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2021-03-22 15:19:21.293 +00:00 [INF] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-03-22 15:19:21.329 +00:00 [INF] Creating key {17fb33d3-a3a7-49f6-b577-d5c98d365a93} with creation date 2021-03-22 15:19:21Z, activation date 2021-03-22 15:19:21Z, and expiration date 2021-06-20 15:19:21Z.
+2021-03-22 15:19:21.339 +00:00 [WRN] No XML encryptor configured. Key {17fb33d3-a3a7-49f6-b577-d5c98d365a93} may be persisted to storage in unencrypted form.
+2021-03-22 15:19:21.346 +00:00 [INF] Writing data to file '/root/.aspnet/DataProtection-Keys/key-17fb33d3-a3a7-49f6-b577-d5c98d365a93.xml'.
+2021-03-22 15:19:21.750 +00:00 [INF] Now listening on: http://[::]:80
+2021-03-22 15:19:21.753 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-22 15:19:21.756 +00:00 [INF] Hosting environment: Development
+2021-03-22 15:19:21.765 +00:00 [INF] Content root path: /app
+2021-03-22 15:19:24.450 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger - -
+2021-03-22 15:19:24.531 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger - - - 301 0 - 83.1893ms
+2021-03-22 15:19:24.549 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/index.html - -
+2021-03-22 15:19:24.632 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/index.html - - - 200 - text/html;charset=utf-8 82.4233ms
+2021-03-22 15:19:24.676 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui-bundle.js - -
+2021-03-22 15:19:24.698 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui-standalone-preset.js - -
+2021-03-22 15:19:24.701 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui.css - -
+2021-03-22 15:19:24.854 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-03-22 15:19:24.854 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-03-22 15:19:24.859 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui.css - - - 200 142933 text/css 158.8877ms
+2021-03-22 15:19:24.859 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 161.7741ms
+2021-03-22 15:19:24.910 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-03-22 15:19:24.911 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 235.8299ms
+2021-03-22 15:19:25.171 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/v1/swagger.json - -
+2021-03-22 15:19:25.211 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:55003/swagger/favicon-32x32.png - -
+2021-03-22 15:19:25.212 +00:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-03-22 15:19:25.216 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/favicon-32x32.png - - - 200 628 image/png 4.9399ms
+2021-03-22 15:19:25.319 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:55003/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 147.7717ms
