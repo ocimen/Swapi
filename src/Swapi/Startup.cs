@@ -77,6 +77,7 @@ namespace Swapi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseGlobalExceptionMiddleware();
             app.UseSwaggerDocumentation();
             app.UseAuthentication();
             app.UseRouting();
