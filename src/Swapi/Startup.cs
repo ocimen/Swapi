@@ -23,8 +23,6 @@ namespace Swapi
             Configuration = configuration;
             Log.Logger = new LoggerConfiguration()
                 .Enrich.WithMachineName()
-                //.MinimumLevel.Override("Swapi", LogEventLevel.Information)
-                //.MinimumLevel.Error()
                 .WriteTo.Console()
                 .WriteTo.File("logs.txt")
                 .CreateLogger();

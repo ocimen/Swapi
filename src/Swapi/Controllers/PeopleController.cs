@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Swapi.Service.Interfaces;
@@ -28,8 +24,7 @@ namespace Swapi.Controllers
         /// <returns>Returns the specific people</returns>
         /// <response code="200">Returned if there is any people with that id</response>
         /// <response code="404">Returned if there is no people with that id</response>
-        //TODO: open authorize
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
