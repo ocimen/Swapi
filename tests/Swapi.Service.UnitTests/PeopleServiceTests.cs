@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Swapi.Service.Interfaces;
@@ -19,7 +15,7 @@ namespace Swapi.Service.UnitTests
         public PeopleServiceTests()
         {
             var loggerMock = new Mock<ILogger<PeopleService>>();
-            _peopleService = new PeopleService(loggerMock.Object, httpClientMock.Object, optionsMock.Object, mapper);
+            _peopleService = new PeopleService(loggerMock.Object, httpClientMock.Object, optionsSwapiMock.Object, mapper);
         }
 
         [Fact]

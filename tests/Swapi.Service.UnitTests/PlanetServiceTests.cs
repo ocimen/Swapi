@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Moq;
-using Moq.Protected;
 using Swapi.Service.Interfaces;
-using Swapi.Service.Models;
 using Xunit;
-using ILogger = Castle.Core.Logging.ILogger;
 
 namespace Swapi.Service.UnitTests
 {
@@ -25,7 +15,7 @@ namespace Swapi.Service.UnitTests
         public PlanetServiceTests()
         {
             var loggerMock = new Mock<ILogger<PlanetService>>();
-            _planetService = new PlanetService(loggerMock.Object, httpClientMock.Object, optionsMock.Object, mapper);
+            _planetService = new PlanetService(loggerMock.Object, httpClientMock.Object, optionsSwapiMock.Object, mapper);
         }
 
         [Fact]
