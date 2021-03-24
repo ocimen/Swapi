@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+// The planet service definition.
+service Planet {
+  
+	rpc GetPlanetById (GetPlanetByIdModel) returns (PlanetModel);
+	rpc SearchPlanet (SearchPlanetRequest) returns (stream PlanetModel);
+}
+
+message GetPlanetByIdModel {
+	int32 id = 1;
+}
+
+message SearchPlanetRequest {
+	string name = 1;
+	int32 page = 2;
+}
+
+message Residents {
+	string title = 1;
+}
+
+message PlanetFilms {
+	string title = 1;
+}
+
+message PlanetModel {
+	string name = 1;
+	string rotationPeriod = 2;
+	string orbitalPeriod = 3;
+	string diameter = 4;
+	string climate = 5;
+	string gravity = 6;
+	string terrain = 7;
+	string surfaceWater = 8;
+	string population = 9;
+	repeated Residents residents = 10;	
+	repeated PlanetFilms films = 11;	
+}

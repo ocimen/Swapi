@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapi.Service", "src\Swapi.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D7F2301-6A52-4105-BB3E-FFCD0B2A6C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Service.UnitTests", "tests\Swapi.Service.UnitTests\Swapi.Service.UnitTests.csproj", "{A87064D6-3E22-4840-BB33-816A58019174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapi.Service.UnitTests", "tests\Swapi.Service.UnitTests\Swapi.Service.UnitTests.csproj", "{A87064D6-3E22-4840-BB33-816A58019174}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0CC8F441-248C-4511-9A8F-22971C867B89}"
 EndProject
@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Dockerfile = Dockerfile
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Grpc.Server", "grpc\Swapi.Grpc.Server\Swapi.Grpc.Server.csproj", "{6C772B12-E282-452C-9AD2-D056A7956648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Grpc.Console.Client", "grpc\Swapi.Grpc.Console.Client\Swapi.Grpc.Console.Client.csproj", "{282B9507-C0C6-4E2B-935D-10629F42DA5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{698666B4-36AB-473E-A075-E3AA71134A8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,14 @@ Global
 		{A87064D6-3E22-4840-BB33-816A58019174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A87064D6-3E22-4840-BB33-816A58019174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A87064D6-3E22-4840-BB33-816A58019174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C772B12-E282-452C-9AD2-D056A7956648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C772B12-E282-452C-9AD2-D056A7956648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C772B12-E282-452C-9AD2-D056A7956648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C772B12-E282-452C-9AD2-D056A7956648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282B9507-C0C6-4E2B-935D-10629F42DA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282B9507-C0C6-4E2B-935D-10629F42DA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282B9507-C0C6-4E2B-935D-10629F42DA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282B9507-C0C6-4E2B-935D-10629F42DA5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +58,8 @@ Global
 		{250D5406-AD9D-4981-A4A1-14D9C0F89A54} = {0D7F2301-6A52-4105-BB3E-FFCD0B2A6C5A}
 		{00AA3AE8-E7A2-4263-8ECE-1A01D999D242} = {0D7F2301-6A52-4105-BB3E-FFCD0B2A6C5A}
 		{A87064D6-3E22-4840-BB33-816A58019174} = {0CC8F441-248C-4511-9A8F-22971C867B89}
+		{6C772B12-E282-452C-9AD2-D056A7956648} = {698666B4-36AB-473E-A075-E3AA71134A8F}
+		{282B9507-C0C6-4E2B-935D-10629F42DA5E} = {698666B4-36AB-473E-A075-E3AA71134A8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2D46BDE-F5D6-4481-8803-4D9037A7E052}

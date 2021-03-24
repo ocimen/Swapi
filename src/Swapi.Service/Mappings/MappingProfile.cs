@@ -11,11 +11,11 @@ namespace Swapi.Service.Mappings
         {
             CreateMap<People, People>()
                 .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url.Replace(swapApi.BaseUrl, LocalUrl)))
-                .ForMember(dest => dest.films, opt => opt.MapFrom(src => src.films.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
-                .ForMember(dest => dest.species, opt => opt.MapFrom(src => src.species.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
-                .ForMember(dest => dest.starships, opt => opt.MapFrom(src => src.starships.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
-                .ForMember(dest => dest.vehicles, opt => opt.MapFrom(src => src.vehicles.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
-                .ForMember(dest => dest.homeworld, opt => opt.MapFrom(src => src.homeworld.Replace(swapApi.BaseUrl, LocalUrl)));
+                .ForMember(dest => dest.Films, opt => opt.MapFrom(src => src.Films.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
+                .ForMember(dest => dest.Species, opt => opt.MapFrom(src => src.Species.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
+                .ForMember(dest => dest.Starships, opt => opt.MapFrom(src => src.Starships.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
+                .ForMember(dest => dest.Vehicles, opt => opt.MapFrom(src => src.Vehicles.Select(f => f.Replace(swapApi.BaseUrl, LocalUrl))))
+                .ForMember(dest => dest.Homeworld, opt => opt.MapFrom(src => src.Homeworld.Replace(swapApi.BaseUrl, LocalUrl)));
 
             CreateMap<Planet, Planet>()
                 .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url.Replace(swapApi.BaseUrl, LocalUrl)))
