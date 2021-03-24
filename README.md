@@ -27,7 +27,7 @@
 
 - - - -
 
-### 2. Using API
+### 2. Using REST API
 
 #### LOGIN AND GET TOKEN
 
@@ -64,12 +64,33 @@ If the request was succesful you can get Bearer token which will be validate for
 
 > Auth http://localhost:5000/api/Auth
 
+
+For belowed endpoints you have to be authentication token which you can get from Auth endpoint.
+
 > People Detail http://localhost:5000/api/People/{id}
 > People Search http://localhost:5000/api/People?name={name}&page={pageNumber}
 
 > Planet Detail http://localhost:5000/api/Planets/{id}
 > Planet Search http://localhost:5000/api/Planets?name={name}&page={pageNumber}
 
+You can also see and test all the endpoints on swagger  <http://localhost:5000/swagger>
+
+
+### 3. Using gRPC API
+
+You can run <b> Swapi.Grpc.Server</b>
+ project under <b>/grpc/Swapi.Grpc.Server</b> folder with <b>dotnet run </b> command.
+
+ This app will be run on http://localhost:5100
+
+ After the server app was started you can test it via <b>Swapi.Grpc.Console.Client</b>
+ You can run this project same way with the Server app.
+
+ On Client project there 4 example request which are
+ * People Detail
+ * Search People
+ * Planet Detail
+ * Search Planet
 ## About Project
 
 **Packages:**
@@ -82,7 +103,7 @@ If the request was succesful you can get Bearer token which will be validate for
 * Newtonsoft.Json
 * Microsoft Native Injector
 * Swashbuckle (Swagger)
-* Others .net Core Packages
+* Others .NetCore Packages
 
 - - - -
 
