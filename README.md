@@ -68,9 +68,11 @@ If the request was succesful you can get Bearer token which will be validate for
 For belowed endpoints you have to be authentication token which you can get from Auth endpoint.
 
 > People Detail http://localhost:5000/api/People/{id}
+
 > People Search http://localhost:5000/api/People?name={name}&page={pageNumber}
 
 > Planet Detail http://localhost:5000/api/Planets/{id}
+
 > Planet Search http://localhost:5000/api/Planets?name={name}&page={pageNumber}
 
 You can also see and test all the endpoints on swagger  <http://localhost:5000/swagger>
