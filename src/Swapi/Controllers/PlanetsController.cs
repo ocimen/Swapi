@@ -24,8 +24,7 @@ namespace Swapi.Controllers
         /// <returns>Returns the specific planet</returns>
         /// <response code="200">Returned if the there is a planet with that id</response>
         /// <response code="400">Returned if there is no planet with that id</response>
-        //TODO: open authorize
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -49,8 +48,7 @@ namespace Swapi.Controllers
         /// <returns>Returns the planets list which matched with search term</returns>
         /// <response code="200">Returned if there is any matched planet with that name</response>
         /// <response code="404">Returned if there is no planet with that name</response>
-        //TODO: open authorize
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]

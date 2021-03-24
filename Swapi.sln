@@ -16,11 +16,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F70E221-2561-49E2-8F52-1C9AC4F1F582}"
 	ProjectSection(SolutionItems) = preProject
 		Dockerfile = Dockerfile
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Grpc.Server", "grpc\Swapi.Grpc.Server\Swapi.Grpc.Server.csproj", "{6C772B12-E282-452C-9AD2-D056A7956648}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapi.Grpc.Server", "grpc\Swapi.Grpc.Server\Swapi.Grpc.Server.csproj", "{6C772B12-E282-452C-9AD2-D056A7956648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapi.Grpc.Console.Client", "grpc\Swapi.Grpc.Console.Client\Swapi.Grpc.Console.Client.csproj", "{282B9507-C0C6-4E2B-935D-10629F42DA5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapi.Grpc.Console.Client", "grpc\Swapi.Grpc.Console.Client\Swapi.Grpc.Console.Client.csproj", "{282B9507-C0C6-4E2B-935D-10629F42DA5E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{698666B4-36AB-473E-A075-E3AA71134A8F}"
 EndProject

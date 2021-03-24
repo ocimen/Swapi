@@ -48,8 +48,7 @@ namespace Swapi.Controllers
         /// <returns>Returns the people list which matched with search term</returns>
         /// <response code="200">Returned if there is any matched people with that name</response>
         /// <response code="404">Returned if there is no people with that name</response>
-        //TODO: open authorize
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
