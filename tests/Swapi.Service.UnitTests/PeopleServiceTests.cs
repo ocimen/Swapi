@@ -25,7 +25,7 @@ namespace Swapi.Service.UnitTests
             var people = await _peopleService.GetById(2);
 
             Assert.NotNull(people);
-            Assert.Equal("C-3PO", people.name);
+            Assert.Equal("C-3PO", people.Name);
         }
 
         [Fact]

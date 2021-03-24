@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+// The people service definition.
+service People {
+  rpc GetPeopleById (GetPeopleByIdModel) returns (PeopleModel);
+  rpc SearchPeople (SearchPeopleRequest) returns (stream PeopleModel);
+}
+
+message GetPeopleByIdModel {
+	int32 id = 1;
+}
+
+message SearchPeopleRequest {
+	string name = 1;
+	int32 page = 2;
+}
+
+message Films {
+	string title = 1;
+}
+
+message Species {
+	string title = 1;
+}
+
+message Vehicles {
+	string title = 1;
+}
+
+message Starships {
+	string title = 1;
+}
+
+message PeopleModel {
+	string name = 1;
+	string height = 2;
+	string mass = 3;
+	string hairColor = 4;
+	string skinColor = 5;
+	string eyeColor = 6;
+	string birthYear = 7;
+	string gender = 8;
+	string homeworld= 9;
+	repeated Films films = 10;
+	repeated Species species = 11;
+	repeated Vehicles vehicles = 12;	
+	repeated Starships starships = 13;
+}
