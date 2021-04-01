@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Net;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Swapi.Models;
 using Swapi.Service.Interfaces;
 
 namespace Swapi.Controllers
@@ -24,11 +26,13 @@ namespace Swapi.Controllers
         /// <returns>Returns the specific people</returns>
         /// <response code="200">Returned if there is any people with that id</response>
         /// <response code="404">Returned if there is no people with that id</response>
+        /// <response code="500">Returned if there is an internal error.</response>
         [Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
             var people = await _peopleService.GetById(id);
@@ -48,11 +52,13 @@ namespace Swapi.Controllers
         /// <returns>Returns the people list which matched with search term</returns>
         /// <response code="200">Returned if there is any matched people with that name</response>
         /// <response code="404">Returned if there is no people with that name</response>
+        /// <response code="500">Returned if there is an internal error.</response>
         [Authorize]
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Search(string name, int page = 1)
         {
             var people = await _peopleService.Search(name, page);

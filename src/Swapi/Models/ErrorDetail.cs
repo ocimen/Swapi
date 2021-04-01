@@ -1,9 +1,11 @@
-﻿namespace Swapi.Middleware.Models
+﻿using System.Net;
+
+namespace Swapi.Models
 {
     public class ErrorDetail
     {
-        public int StatusCode { get; set; }
+        public HttpStatusCode StatusCode { get; set; } = HttpStatusCode.InternalServerError;
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = "An unexpected error occured";
     }
 }

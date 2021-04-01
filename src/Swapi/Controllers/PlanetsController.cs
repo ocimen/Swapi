@@ -23,12 +23,14 @@ namespace Swapi.Controllers
         /// <param name="id">Param to get specific planet by id</param>
         /// <returns>Returns the specific planet</returns>
         /// <response code="200">Returned if the there is a planet with that id</response>
-        /// <response code="400">Returned if there is no planet with that id</response>
+        /// <response code="404">Returned if there is no planet with that id</response>
+        /// <response code="500">Returned if there is an internal error.</response>
         [Authorize]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
             var planet = await _planetService.GetById(id);
@@ -48,11 +50,13 @@ namespace Swapi.Controllers
         /// <returns>Returns the planets list which matched with search term</returns>
         /// <response code="200">Returned if there is any matched planet with that name</response>
         /// <response code="404">Returned if there is no planet with that name</response>
+        /// <response code="500">Returned if there is an internal error.</response>
         [Authorize]
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Search(string search, int page = 1)
         {
             var planet = await _planetService.Search(search, page);
